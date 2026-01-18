@@ -602,7 +602,7 @@ static void RefreshInterfaces(void)  // LINUX/BSD VERSION
     req.header.nlmsg_len = NLMSG_LENGTH(sizeof (req.msg));
     req.msg.ifa_family = AF_UNSPEC;
 
-    if (send(sock, &req, req.header.nlmsg_len, 0) != req.header.nlmsg_len) {
+    if (send(sock, &req, req.header.nlmsg_len, 0) != (Sint32)req.header.nlmsg_len) {
         close(sock);
         return;  // oh well.
     }
